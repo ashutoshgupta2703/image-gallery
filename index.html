@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Responsive Image Gallery</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Responsive Image Gallery</h1>
+      <div class="controls">
+        <div class="small">Tip: Use arrows or click to navigate • Press Esc to close</div>
+      </div>
+    </header>
+
+    <div class="toolbar">
+      <div>
+        <button class="btn active" data-filter="all">All</button>
+        <button class="btn" data-filter="nature">Nature</button>
+        <button class="btn" data-filter="cities">Cities</button>
+        <button class="btn" data-filter="people">Potrait</button>
+      </div>
+
+      <div class="toolbar-right">
+        <select id="effectSelect" class="search" title="Quick filters">
+          <option value="none">Normal</option>
+          <option value="bw">B&amp;W</option>
+          <option value="sepia">Sepia</option>
+          <option value="bright">Bright</option>
+        </select>
+        <input id="search" class="search" placeholder="Search for captions or tags" />
+      </div>
+    </div>
+
+    <main>
+      <section class="gallery" id="gallery">
+        <article class="card" tabindex="0" data-category="nature" data-tags="forest,mist" data-title="Misty Forest">
+          <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1200&auto=format&fit=crop" alt="Misty Forest" loading="lazy">
+          <div class="overlay">
+            <div class="caption">Mountains</div>
+            <div class="meta">Nature • forest, mist</div>
+          </div>
+        </article>
+
+        <article class="card" tabindex="0" data-category="cities" data-tags="city,night" data-title="City Lights">
+          <img src="https://images.unsplash.com/photo-1499346030926-9a72daac6c63?q=80&w=1200&auto=format&fit=crop" alt="City Lights" loading="lazy">
+          <div class="overlay">
+            <div class="caption">Clear sky</div>
+            <div class="meta">Cities • urban night</div>
+          </div>
+        </article>
+
+        <article class="card" tabindex="0" data-category="people" data-tags="portrait,man" data-title="Pensive Portrait">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1200&auto=format&fit=crop" alt="Pensive Portrait" loading="lazy">
+          <div class="overlay">
+            <div class="caption">Pensive Portrait</div>
+            <div class="meta">People • portrait</div>
+          </div>
+        </article>
+
+        <article class="card" tabindex="0" data-category="nature" data-tags="beach,sunset" data-title="Sunset Beach">
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop" alt="Sunset Beach" loading="lazy">
+          <div class="overlay">
+            <div class="caption">Sunset Beach</div>
+            <div class="meta">Nature • beach, sunset</div>
+          </div>
+        </article>
+
+        <article class="card" tabindex="0" data-category="cities" data-tags="bridge,river" data-title="Golden Bridge">
+          <img src=https://i.pinimg.com/originals/96/25/22/962522462061ca63932bfe085b4fa817.jpg alt="Golden Bridge" loading="lazy">
+          <div class="overlay">
+            <div class="caption">Rainy road</div>
+            <div class="meta">Cities • ain,street</div>
+          </div>
+        </article>
+
+        <article class="card" tabindex="0" data-category="people" data-tags="woman,smile" data-title="Laughing Woman">
+          <img src=https://thefederal.com/h-upload/2023/11/20/420858-australia-wc-trophy.webp alt="Laughing Woman" loading="lazy">
+          <div class="overlay">
+            <div class="caption">Cricket</div>
+            <div class="meta">People • portrait, smile</div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+      <div class="lightbox-content">
+        <div class="lightbox-img" id="lightboxImgWrap">
+          <button class="nav-btn" id="prevBtn" aria-label="Previous image">◀</button>
+          <div class="lightbox-center">
+            <img id="lightboxImg" src="" alt="" />
+          </div>
+          <button class="nav-btn" id="nextBtn" aria-label="Next image">▶</button>
+        </div>
+        <aside class="lightbox-side">
+          <div class="lightbox-header">
+            <div>
+              <div id="lbTitle" class="lb-title"></div>
+              <div id="lbMeta" class="small"></div>
+            </div>
+            <div class="lightbox-actions">
+              <button class="close" id="closeLb" aria-label="Close">✕</button>
+              <button class="btn" id="downloadBtn">Download</button>
+            </div>
+          </div>
+
+          <div class="effects-wrap">
+            <div class="small">Quick Effects</div>
+            <div class="effects" id="effects">
+              <div class="ef" data-effect="none">Normal</div>
+              <div class="ef" data-effect="bw">B&amp;W</div>
+              <div class="ef" data-effect="sepia">Sepia</div>
+              <div class="ef" data-effect="bright">Bright</div>
+            </div>
+          </div>
+
+          <div class="thumbs-wrap">
+            <div class="small">Thumbnails</div>
+            <div class="thumb-list" id="thumbs"></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
